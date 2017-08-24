@@ -6,8 +6,7 @@
 #include <Process.h>
 #include <YunClient.h>
 
-//IPAddress server(213, 226, 1, 254);
-char server[] = "eesystems.net";
+IPAddress server(192,168,0,210);
 
 YunClient client;
 
@@ -357,7 +356,7 @@ void SendToServer(void)
     client.print("GET /ems/ar_elmeter.php");
     client.println(parametri);
     client.println(" HTTP/1.1");
-    client.println("Host: eesystems.net");
+    client.println("Host: 192.168.0.210");
     client.print("Content-length:");
     client.println(parametri.length());
     client.println(parametri);
