@@ -7,9 +7,10 @@
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_MCP9808.h>
+#include <Adafruit_Sensor.h>
 #include <DHT.h>
 
-IPAddress server(213,226,1,254);
+IPAddress server(192,168,0,210);
 
 YunClient client;
 
@@ -64,7 +65,7 @@ void loop(){
   delay(250);
   //bridge ip address
   Process p;
-  p.runShellCommand("ifconfig wlan0 | grep inet | cut -c21-35");
+  p.runShellCommand("ifconfig wlan0 | grep inet | cut -c21-32");
   while(p.running());  
   while (p.available()) {
     IP = p.readString();
@@ -90,7 +91,7 @@ void loop(){
     client.print("GET /kas/arduino_out_temp.php");
     client.print(parametri);
     client.println(" HTTP/1.1");
-    client.println("Host: 213.226.1.254");
+    client.println("Host: 192.168.0.210");
     client.print("Content-length:");
     client.println(parametri.length());
     Serial.println(parametri);
@@ -111,3 +112,4 @@ void loop(){
   }
   delay(6000);
 }
+
