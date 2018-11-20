@@ -22,16 +22,20 @@ void setup() {
 	digitalWrite(blLED, LOW);
   digitalWrite(exLED, LOW);
 	TimeOut = millis();
-	tone(Sound, 4000, 500);
-	delay(500);
-	tone(Sound, 3500, 300);
-	delay(300);
 	tone(Sound, 3000, 300);
 	delay(300);
+	tone(Sound, 3500, 300);
+	delay(300);
+	tone(Sound, 4000, 500);
+	delay(500);
+  tone(Sound, 3500, 300);
+  delay(300);
+  tone(Sound, 3000, 300);
+  delay(300);
 }
 
 void loop() {
-	if (millis() - TimeOut >= 15000) {
+	if (millis() - TimeOut >= 180000) {
 		TimeOut = millis();
 		laundry = random(1,4);
 		progr = random(1,10);
